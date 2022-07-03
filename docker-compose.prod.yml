@@ -1,0 +1,5 @@
+services:
+  document:
+    build:
+      target: production
+    command: npm run start
