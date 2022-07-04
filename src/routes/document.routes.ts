@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post(
   "/",
-  uploadFile.single("doc"),
+  uploadFile.single("file"),
   fileExists,
   fileExtensions([".pdf", ".docx", ".txt"]),
   DocumentController.create

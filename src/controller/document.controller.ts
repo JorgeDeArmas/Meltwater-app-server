@@ -5,7 +5,7 @@ import path from "path";
 class DocumentController {
   static async create(req: Request, res: Response, next: NextFunction): Promise<any> {
     try {
-      const file = await documentService.create(req.file, req.body?.keywords);
+      const file = await documentService.create(req.file, req.body?.phrase);
 
       if (!file) return res.send(400).send({ message: "Phrases not found in the document" });
 
