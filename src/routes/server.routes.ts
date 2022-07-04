@@ -1,4 +1,4 @@
-import express, { Express } from "express";
+import express, { Express, Request, Response } from "express";
 import helmet from "helmet";
 import cors from "cors";
 import documentRouter from "./document.routes";
@@ -10,6 +10,9 @@ export default function (app: Express) {
   app.use(express.urlencoded());
   app.use(helmet());
 
+  app.get("/", (req: Request, res: Response) => {
+    res.send("Welcome to Meltwater Api");
+  });
   app.use("/documents", documentRouter);
   app.use(errorHandler);
 }
