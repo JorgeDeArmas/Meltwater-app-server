@@ -11,7 +11,7 @@ export default function (app: Express) {
   app.use(helmet());
 
   app.get("/", (req: Request, res: Response) => {
-    res.send("Welcome to Meltwater document Api");
+    res.send("Welcome to Meltwater Classified document Api");
   });
   app.use("/documents", documentRouter);
   app.use(errorHandler);
