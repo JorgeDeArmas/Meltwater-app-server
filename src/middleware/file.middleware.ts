@@ -1,12 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import path from "path";
 
-export const fileExists = (req: Request, res: Response, next: NextFunction): any => {
-  if (!req.file) return res.status(400).send({ status: "error", message: "Missing files" });
-
-  return next();
-};
-
 export const fileExtensions = (allowedExtensions: Array<string>): any => {
   return (req: Request, res: Response, next: NextFunction): any => {
     if (!req.file) return res.status(400).send({ status: "error", message: "Missing files" });

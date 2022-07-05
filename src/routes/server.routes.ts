@@ -1,4 +1,5 @@
 import express, { Express, Request, Response } from "express";
+import connect from "../service/db.service";
 import helmet from "helmet";
 import cors from "cors";
 import documentRouter from "./document.routes";
@@ -9,6 +10,7 @@ export default function (app: Express) {
   app.use(express.json());
   app.use(express.urlencoded());
   app.use(helmet());
+  connect();
 
   app.get("/", (req: Request, res: Response) => {
     res.send("Welcome to Meltwater Classified document Api");

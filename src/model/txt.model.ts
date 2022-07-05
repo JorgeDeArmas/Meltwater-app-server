@@ -25,8 +25,10 @@ export default class Txt extends Document {
 
     const txtDocument: IDocument = {
       id: this.id,
-      originalName: this.originalName,
+      name: this.name,
       extension: this.extension,
+      urlOriginal: this.urlOriginal,
+      urlClassified: this.urlClassified,
     };
 
     return txtDocument;

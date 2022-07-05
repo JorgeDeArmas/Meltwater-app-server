@@ -11,8 +11,10 @@ export default class Doc extends Document {
 
     const docDocument: IDocument = {
       id: this.id,
-      originalName: this.originalName,
+      name: this.name,
       extension: this.extension,
+      urlOriginal: this.urlOriginal,
+      urlClassified: this.urlClassified,
     };
 
     return docDocument;

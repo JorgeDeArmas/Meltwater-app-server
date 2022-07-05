@@ -1,5 +1,6 @@
 import S3 from "aws-sdk/clients/s3";
 import config from "config";
+import fs from "fs";
 
 export class S3Service {
   region: string = config.get("aws.AWS_BUCKET_REGION");
@@ -15,12 +16,12 @@ export class S3Service {
     });
   }
 
-  upload(bucketName: string, file: Express.Multer.File) {
-    console.log(file);
+  upload(bucketName: string, file: Express.Multer.File, path: string) {
+    const buffer = fs.readFileSync(path);
 
     const params = {
       Bucket: bucketName,
-      Body: file.buffer,
+      Body: buffer,
       Key: `uploads/${file.filename}`,
       ContentType: file.mimetype,
     };

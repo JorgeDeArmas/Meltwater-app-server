@@ -21,8 +21,10 @@ export default class Pdf extends Document {
 
     const pdfDocument: IDocument = {
       id: this.id,
-      originalName: this.originalName,
+      name: this.name,
       extension: this.extension,
+      urlOriginal: this.urlOriginal,
+      urlClassified: this.urlClassified,
     };
 
     return pdfDocument;

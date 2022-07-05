@@ -15,6 +15,15 @@ class DocumentController {
     }
   }
 
+  static async getAll(req: Request, res: Response, next: NextFunction): Promise<any> {
+    try {
+      const documents = await documentService.getAll();
+      res.status(200).send(documents);
+    } catch (err) {
+      next(err);
+    }
+  }
+
   static async download(req: Request, res: Response, next: NextFunction): Promise<any> {
     try {
       if (!req.params) return res.status(400).send({ message: "The Id is required" });
