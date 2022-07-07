@@ -6,15 +6,15 @@ import documentRouter from "./document.routes";
 import errorHandler from "../middleware/error.middleware";
 
 export default function (app: Express) {
-  app.use(cors());
-  app.use(express.json());
-  app.use(express.urlencoded());
-  app.use(helmet());
-  connect();
+    app.use(cors());
+    app.use(express.json());
+    app.use(express.urlencoded());
+    app.use(helmet());
+    connect();
 
-  app.get("/", (req: Request, res: Response) => {
-    res.send("Welcome to Meltwater Classified document Api");
-  });
-  app.use("/documents", documentRouter);
-  app.use(errorHandler);
+    app.get("/", (req: Request, res: Response) => {
+        res.send("Welcome to Meltwater Classified Document Api");
+    });
+    app.use("/documents", documentRouter);
+    app.use(errorHandler);
 }

@@ -5,13 +5,9 @@ import DocumentController from "../controller/document.controller";
 
 const router = express.Router();
 
-router.post(
-  "/",
-  uploadFile.single("file"),
-  fileExtensions([".pdf", ".docx", ".txt"]),
-  DocumentController.create
-);
+router.post("/", uploadFile.single("file"), fileExtensions([".pdf", ".docx", ".txt"]), DocumentController.create);
 router.get("/", DocumentController.getAll);
 router.get("/:id/downloads", DocumentController.download);
+router.delete("/:id", DocumentController.delete);
 
 export default router;
