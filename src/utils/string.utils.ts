@@ -16,6 +16,7 @@ export function extractString(str: string): Array<string> | null {
     const DOUBLE_QUOTES_WITH_FORMAT_END = 8221;
     const SINGLE_QUOTES_WITH_FORMAT_BEGIN = 8216;
     const SINGLE_QUOTES_WITH_FORMAT_END = 8217;
+    const SINGLE_QUOTES_BACK = 96;
 
     let i = 0;
 
@@ -39,14 +40,19 @@ export function extractString(str: string): Array<string> | null {
                 i = exractStringAux(i, newStr, SINGLE_QUOTES_WITH_FORMAT_END, phrases);
                 break;
             }
+            case SINGLE_QUOTES_BACK: {
+                i = exractStringAux(i, newStr, SINGLE_QUOTES_BACK, phrases);
+                break;
+            }
             default:
                 i++;
         }
     }
+
     return phrases;
 }
 //Refactoring the code
-//Auxiliar function for extract string function
+//Auxiliar function for extract string
 function exractStringAux(i: number, newStr: String, quotesTypes: number, phrases: Array<string>): number {
     i++;
 
@@ -75,6 +81,7 @@ export function replaceString(str: string, char: string): string {
 
     for (let i = 0; i < newStr.length; i++) if (newStr[i] !== " ") newStr[i] = char;
 
+    newStr.push(" ");
     return newStr.join("");
 }
 

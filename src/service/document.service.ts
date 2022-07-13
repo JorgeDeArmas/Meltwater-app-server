@@ -15,7 +15,7 @@ class DocumentService {
         const processedDocument = await this.process(file, keywords);
         const bucketOriginalDocument = await s3.upload(
             config.get("aws.AWS_BUCKET_NAME"),
-            file.originalname,
+            file.filename,
             file.mimetype,
             file.path,
         );
